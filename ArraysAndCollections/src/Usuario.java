@@ -12,8 +12,8 @@ public class Usuario {
         if (obj instanceof Usuario) {
             Usuario outro = (Usuario) obj;
             boolean nomeIgual = outro.nome.equals(this.nome);
-            boolean emailIgual = outro.email.equals(this.email);
-            return nomeIgual && emailIgual;
+            //boolean emailIgual = outro.email.equals(this.email);
+            return nomeIgual; // && emailIgual;
         } else {
             return false;
         }
@@ -21,7 +21,8 @@ public class Usuario {
 
     @Override
     public int hashCode() {
-        return 1;
+
+        return this.nome.length();
     }
 
     @Override
