@@ -1,6 +1,8 @@
 package org.example.modelo;
 
 import org.example.execao.ExplosaoException;
+import org.fusesource.jansi.Ansi;
+import org.fusesource.jansi.AnsiConsole;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,6 +81,7 @@ public class Tabuleiro {
     }
 
     public String toString() {
+        AnsiConsole.systemInstall();
         StringBuilder sb = new StringBuilder();
 
         sb.append("  ");
@@ -94,8 +97,19 @@ public class Tabuleiro {
             sb.append(l);
             sb.append(" ");
             for (int c = 0; c < colunas; c++) {
+                Campo campo = campos.get(i);
                 sb.append(" ");
-                sb.append(campos.get(i));
+                if (campo.isAberto()) {
+                    if (campo.isMinado()) {
+                        sb.append(Ansi.ansi().fg(Ansi.Color.RED).a(campo).reset());
+                    } else {
+                        sb.append(Ansi.ansi().fg(Ansi.Color.GREEN).a(campo).reset());
+                    }
+                } else if (campo.isMarcado()) {
+                    sb.append(Ansi.ansi().fg(Ansi.Color.BLACK).a("m").reset());
+                } else {
+                    sb.append(Ansi.ansi().fg(Ansi.Color.CYAN).a("■").reset());
+                }
                 sb.append(" ");
                 i++;
             }
