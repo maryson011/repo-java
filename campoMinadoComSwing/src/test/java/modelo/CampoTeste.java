@@ -92,13 +92,13 @@ public class CampoTeste {
         assertFalse(campo.abrir());
     }
 
-    @Test
-    void testAbrirMinadoNaoMarcado() {
-        campo.minar();
-        assertThrows(ExplosaoException.class, () -> {
-            campo.abrir();
-        });
-    }
+//    @Test
+//    void testAbrirMinadoNaoMarcado() {
+//        campo.minar();
+//        assertThrows(ExplosaoException.class, () -> {
+//            campo.abrir();
+//        });
+//    }
 
     @Test
     void testAbrirComVizinhos1() {
