@@ -8,30 +8,50 @@ public class Teclado extends JPanel {
     private final Color CINZA_CLARO = new Color(99,99,99);
     private final Color LARANJA = new Color(242,163,60);
     public Teclado() {
-        setLayout(new GridLayout(5,4));
-        add(new Botao("AC", CINZA_ESCURO));
-        add(new Botao("+/-", CINZA_ESCURO));
-        add(new Botao("%", CINZA_ESCURO));
-        add(new Botao("/", LARANJA));
+        GridBagLayout layout = new GridBagLayout();
+        GridBagConstraints c = new GridBagConstraints();
 
-        add(new Botao("7", CINZA_ESCURO));
-        add(new Botao("8", CINZA_ESCURO));
-        add(new Botao("9", CINZA_ESCURO));
-        add(new Botao("*", LARANJA));
+        setLayout(layout);
 
-        add(new Botao("4", CINZA_ESCURO));
-        add(new Botao("5", CINZA_ESCURO));
-        add(new Botao("6", CINZA_ESCURO));
-        add(new Botao("-", LARANJA));
+        c.weightx = 1;
+        c.weighty = 1;
+        c.fill = GridBagConstraints.BOTH;
 
-        add(new Botao("1", CINZA_ESCURO));
-        add(new Botao("2", CINZA_ESCURO));
-        add(new Botao("3", CINZA_ESCURO));
-        add(new Botao("+", LARANJA));
+        c.gridwidth = 3;
+        adicionarBotao("AC", CINZA_ESCURO, c, 0, 0);
+        c.gridwidth = 1;
+//        adicionarBotao("+/-", CINZA_ESCURO, c, 1, 0);
+//        adicionarBotao("%", CINZA_ESCURO, c, 2, 0);
+        adicionarBotao("/", LARANJA, c, 3, 0);
 
-        add(new Botao("0", CINZA_ESCURO));
-        add(new Botao(",", CINZA_ESCURO));
-        add(new Botao(".", CINZA_ESCURO));
-        add(new Botao("=", LARANJA));
+        adicionarBotao("7", CINZA_CLARO, c, 0, 1);
+        adicionarBotao("8", CINZA_CLARO, c, 1, 1);
+        adicionarBotao("9", CINZA_CLARO, c, 2, 1);
+        adicionarBotao("*", LARANJA, c, 3, 1);
+
+        adicionarBotao("4", CINZA_CLARO, c, 0, 2);
+        adicionarBotao("5", CINZA_CLARO, c, 1, 2);
+        adicionarBotao("6", CINZA_CLARO, c, 2, 2);
+        adicionarBotao("-", LARANJA, c, 3, 2);
+
+        adicionarBotao("1", CINZA_CLARO, c, 0, 3);
+        adicionarBotao("2", CINZA_CLARO, c, 1, 3);
+        adicionarBotao("3", CINZA_CLARO, c, 2, 3);
+        adicionarBotao("+", LARANJA, c, 3, 3);
+
+        c.gridwidth = 2;
+        adicionarBotao("0", CINZA_CLARO, c, 0, 4);
+        c.gridwidth = 1;
+        //adicionarBotao("0", CINZA_CLARO, c, 1, 4);
+        adicionarBotao(",", CINZA_CLARO, c, 2, 4);
+        adicionarBotao("=", LARANJA, c, 3, 4);
+
+    }
+
+    public void adicionarBotao(String texto, Color cor, GridBagConstraints c, int x, int y) {
+        c.gridx = x;
+        c.gridy = y;
+        Botao botao = new Botao(texto, cor);
+        add(botao, c);
     }
 }
