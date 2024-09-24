@@ -84,7 +84,14 @@ public class DesafioAtualizarRegistro {
             stmtAtualizar.setString(1, novoNome);
             stmtAtualizar.setInt(2, id);
             stmtAtualizar.execute();
-            stmtAtualizar.close();
+
+            if (stmtAtualizar.executeUpdate() > 0) {
+                System.out.println(stmtAtualizar.executeUpdate());
+                stmtAtualizar.close();
+            } else {
+                stmtAtualizar.close();
+                System.out.println("nada feito!!! :((");
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
