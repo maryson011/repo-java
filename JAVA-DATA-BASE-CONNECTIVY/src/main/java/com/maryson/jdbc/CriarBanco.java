@@ -7,12 +7,13 @@ import java.sql.Statement;
 
 public class CriarBanco {
     public static void main(String[] args) throws SQLException {
-        String stringConexao = "jdbc:mysql://localhost:3306?verifyServerCertificate=false&useSSL=true";
-        String usuario = "root";
-        String senha = "rootpassword2024";
+//        String stringConexao = "jdbc:mysql://localhost:3306?verifyServerCertificate=false&useSSL=true";
+//        String usuario = "root";
+//        String senha = "rootpassword2024";
 
-        Connection conexao = DriverManager.getConnection(stringConexao, usuario, senha);
-
+//        Connection conexao = DriverManager.getConnection(stringConexao, usuario, senha);
+        
+        Connection conexao = FabricaConexao.getConexao();
         Statement stmt = conexao.createStatement();
         stmt.execute("CREATE DATABASE IF NOT EXISTS curso_java_jdbc");
 
