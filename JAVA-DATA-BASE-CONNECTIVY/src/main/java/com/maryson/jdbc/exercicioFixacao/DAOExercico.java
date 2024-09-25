@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DAO {
+public class DAOExercico {
     private Connection conn;
 
     public int incluir(String sql, Object... atributos) {
@@ -23,6 +23,16 @@ public class DAO {
                 }
             }
             return -1;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ResultSet consultar(String sql, Object... atributos) {
+        try {
+            PreparedStatement stmt = getConn().prepareStatement(sql);
+            adicionarAtributos(stmt, atributos);
+            return stmt.executeQuery();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
