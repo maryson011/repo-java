@@ -10,7 +10,7 @@ public class Produto {
     private Long id;
     @Column(name = "prod_nome", length = 100, nullable = false)
     private String nome;
-    @Column(name = "prod_preco", nullable = false, precision = 11, scale = 2)
+    @Column(name = "prod_preco", nullable = false)
     private Double preco;
 
     public Produto() {}
