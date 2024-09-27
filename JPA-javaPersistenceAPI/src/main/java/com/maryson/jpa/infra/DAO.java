@@ -68,6 +68,14 @@ public class DAO<E> {
         em.close();
     }
 
+    public E obterPorID(long id) {
+        if (classe == null) {
+            throw new UnsupportedOperationException("Classe nula.");
+        }
+
+        return em.find(classe, id);
+    }
+
 //    public DAO<E> teste() {
 //        return this;
 //    }

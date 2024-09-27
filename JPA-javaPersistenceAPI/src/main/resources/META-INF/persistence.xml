@@ -11,6 +11,17 @@
         <!-- Classes de entidade (opcional) -->
         <class>com.maryson.jpa.modelo.basico.Usuario</class>
         <class>com.maryson.jpa.modelo.basico.Produto</class>
+        <class>com.maryson.jpa.modelo.umpraum.Assento</class>
+        <class>com.maryson.jpa.modelo.umpraum.Cliente</class>
+        <class>com.maryson.jpa.modelo.umpramuitos.Pedido</class>
+        <class>com.maryson.jpa.modelo.umpramuitos.ItemPedido</class>
+        <class>com.maryson.jpa.modelo.muitospramuitos.Tio</class>
+        <class>com.maryson.jpa.modelo.muitospramuitos.Sobrinho</class>
+        <class>com.maryson.jpa.modelo.muitospramuitos.Ator</class>
+        <class>com.maryson.jpa.modelo.muitospramuitos.Filme</class>
+        <class>com.maryson.jpa.modelo.composicao.Endereco</class>
+        <class>com.maryson.jpa.modelo.composicao.Fornecedor</class>
+        <class>com.maryson.jpa.modelo.composicao.Funcionario</class>
 
         <!-- Propriedades de conexão -->
         <properties>
